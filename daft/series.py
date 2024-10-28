@@ -315,6 +315,15 @@ class Series:
     def round(self, decimal: int) -> Series:
         return Series._from_pyseries(self._series.round(decimal))
 
+    def binary_min(self, other: Series) -> Series:
+        return Series._from_pyseries(self._series.binary_min(other._series))
+
+    def binary_max(self, other: Series) -> Series:
+        return Series._from_pyseries(self._series.binary_max(other._series))
+
+    def clip(self, min: Series, max: Series) -> Series:
+        return Series._from_pyseries(self._series.clip(min._series, max._series))
+
     def sqrt(self) -> Series:
         return Series._from_pyseries(self._series.sqrt())
 
